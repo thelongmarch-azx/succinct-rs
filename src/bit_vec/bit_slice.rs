@@ -108,8 +108,7 @@ impl<'a, Base: 'a + BitVec + ?Sized> BitVec for BitSlice<'a, Base> {
     }
 
     fn get_block(&self, position: usize) -> Self::Block {
-        self.data
-            .get_bits(Self::Block::mul_nbits(position), Self::Block::nbits())
+        self.data.get_block(position)
     }
 }
 
@@ -136,8 +135,7 @@ impl<'a, Base: 'a + BitVecMut + ?Sized> BitVec for BitSliceMut<'a, Base> {
     }
 
     fn get_block(&self, position: usize) -> Self::Block {
-        self.data
-            .get_bits(Self::Block::mul_nbits(position), Self::Block::nbits())
+        self.data.get_block(position)
     }
 }
 
