@@ -4,6 +4,7 @@
 use num_traits::ToPrimitive;
 
 use bit_vec::{BitVec, BitVecMut};
+use rkyv::{Archive, Deserialize as ZeroDeserialize, Serialize as ZeroSerialize};
 use space_usage::SpaceUsage;
 use storage::BlockType;
 
@@ -21,7 +22,9 @@ use storage::BlockType;
 /// that create a vector, `element_bits` is checked for overflow. For other methods,
 /// it is assumed to have already been checked, so the client must ensure that it
 /// doesn’t pass bogus `element_bits` values.
-#[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
+#[derive(
+    Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Archive, ZeroDeserialize, ZeroSerialize,
+)]
 pub struct VectorBase<Block> {
     len: u64,
     vec: Vec<Block>,

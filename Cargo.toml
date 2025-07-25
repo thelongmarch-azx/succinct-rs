@@ -13,6 +13,7 @@ keywords = ["succinct", "rank", "select"]
 [dependencies]
 num-traits = "0.2"
 byteorder = "1.2"
+rkyv = "0.8.10"
 
 [dev-dependencies]
 quickcheck = "0.9.0"
