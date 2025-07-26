@@ -28,6 +28,7 @@
 extern crate byteorder;
 extern crate num_traits;
 extern crate rkyv;
+extern crate serde;
 
 #[cfg(test)]
 extern crate quickcheck;

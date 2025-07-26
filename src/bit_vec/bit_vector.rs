@@ -5,14 +5,12 @@ use num_traits::ToPrimitive;
 
 use super::traits::*;
 use internal::vector_base::{self, VectorBase};
-use rkyv::{Archive, Deserialize as ZeroDeserialize, Serialize as ZeroSerialize};
+use serde::{Deserialize, Serialize};
 use space_usage::SpaceUsage;
 use storage::BlockType;
 
 /// Uncompressed vector of bits.
-#[derive(
-    Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Archive, ZeroDeserialize, ZeroSerialize,
-)]
+#[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub struct BitVector<Block: BlockType = usize>(VectorBase<Block>);
 
 impl<Block: BlockType> BitVector<Block> {
